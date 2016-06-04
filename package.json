@@ -19,8 +19,12 @@
     "uiview",
     "view"
   ],
+  "dependencies": {
+    "react-addons-clone-with-props": "^0.14.8"
+  },
   "peerDependencies": {
-    "react-native": ">=0.14.0"
+    "react-native": ">=0.14.0",
+    "react": ">=0.14.0"
   },
   "author": "Dmitri Voronianski <dmitri.voronianski@gmail.com>",
   "license": "MIT",
