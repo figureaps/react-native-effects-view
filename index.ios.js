@@ -5,17 +5,18 @@
 
 'use strict';
 
-var React = require('react-native');
+var React = require('react');
+var {
+    View,
+    PropTypes,
+    StyleSheet
+} = require('react-native');
+var cloneWithProps = require('react-addons-clone-with-props');
 var ReactNativeViewAttributes = require('react-native/Libraries/Components/View/ReactNativeViewAttributes');
 var createReactNativeComponentClass = require('react-native/Libraries/ReactNative/createReactNativeComponentClass');
 var NativeMethodsMixin = require('react-native/Libraries/ReactIOS/NativeMethodsMixin');
 var flattenStyle = require('react-native/Libraries/StyleSheet/flattenStyle');
 var merge = require('react-native/Libraries/Utilities/mergeFast');
-var {
-    View,
-    PropTypes,
-    StyleSheet,
-} = React;
 
 var EffectsViewComponent = React.createClass({
     mixins: [NativeMethodsMixin],
@@ -43,7 +44,7 @@ var EffectsViewComponent = React.createClass({
         return (
             <EffectsView {...nativeProps}>
                 {vibrantNode}
-                {children}
+                {React.Children.map(children, cloneWithProps)}
             </EffectsView>
         );
     }
